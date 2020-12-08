@@ -1,5 +1,7 @@
 Project Members: John Rost and Chris Muller
+
 Report Author: John Rost
+
   For our third and final project of the semester, we were tasked with implementing an access control mechanism which would allow for the hardware to handle finding
 pages which are already in memory, alongside the implementation of two separate replacement algorithms for new pages of memory: FIFO and TC. Both Chris and I 
 spent a great deal of time researching these topics before beginning to implement our code. The most difficult task initially was getting used to the new symantics
