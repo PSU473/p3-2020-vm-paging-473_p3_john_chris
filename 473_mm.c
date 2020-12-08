@@ -260,22 +260,22 @@ int clock() {
     if(r == 0 && m == 0) {
       break;
     }
-    else if(r == -1 && m == 1) {
-      wb = 1;
-      break;
-    }
     else if(r == 1 && m == 0) {
-      mprotect((virtualAddress + pageSizes * headOfClock->pageNum), pageSizes, PROT_NONE);
-      headOfClock->protection = PROT_NONE;
-      headOfClock->r = 0;
-    }
-    else if(r == 1 && m == 1) {
       mprotect((virtualAddress + pageSizes * headOfClock->pageNum), pageSizes, PROT_NONE);
       headOfClock->protection = PROT_NONE;
       headOfClock->r = 0;
     }
     else if(r == 0 && m == 1) {
       headOfClock->r = -1;
+    }
+    else if(r == 1 && m == 1) {
+      mprotect((virtualAddress + pageSizes * headOfClock->pageNum), pageSizes, PROT_NONE);
+      headOfClock->protection = PROT_NONE;
+      headOfClock->r = 0;
+    }
+    else if(r == -1 && m == 1) {
+      wb = 1;
+      break;
     }
     headOfClock = headOfClock->next;
   }
